@@ -65,6 +65,16 @@ int MyBag::getCapacity() const
 {
 	return capacity;
 }
+// Get value at a specific index
+int MyBag::getValue(int index) const
+{
+	if (index >= 0 && index < size)
+	{
+		return data[index];
+	}
+
+	return 0;
+}
 
 //Setters
 //precondition: size must be a non-negative integer
@@ -123,14 +133,15 @@ void MyBag::clear()
 // Postcondition: Inserts the value into the bag, resizing if necessary.
 void MyBag::insert(int value)
 {
+	const int FIVE = 5, TWO = 2;
 	if (capacity <= 0)
 	{
-		setCapacity(5);
+		setCapacity(FIVE);
 	}
 
 	if (size >= capacity)
 	{
-		setCapacity(capacity * 2);
+		setCapacity(capacity * TWO);
 	}
 
 	data[size] = value;
@@ -163,7 +174,7 @@ bool MyBag::remove(int index)
 		return false;
 	}
 
-	int valueToRemove = data[index];
+	//int valueToRemove = data[index];
 
 	// Shift elements to the left
 	for (int i = index; i < size - ONE; i++)
@@ -185,7 +196,7 @@ bool MyBag::remove(int index)
 
 		setCapacity(newCapacity);
 	}
-	cout << "\n\t\tValue " << valueToRemove << " has been deleted from MyBag.\n";
+	//cout << "\n\t\tValue " << valueToRemove << " has been deleted from MyBag.\n";
 
 	return true;
 }

@@ -17,6 +17,7 @@ public:
 	//getters
 	int getSize() const;
 	int getCapacity() const;
+	int getValue(int index) const;
 	//setters
 	void setSize(int size);
 	void setCapacity(int capacity);
