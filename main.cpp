@@ -563,4 +563,5 @@ void applicationOption()
 			break;
 		}
 	}
+	delete[] courses;
 }
