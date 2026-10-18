@@ -12,6 +12,7 @@ public:
 	MyBag();
 	MyBag(int capacity);
 	MyBag(const MyBag& other);
+	MyBag& operator=(const MyBag& other);
 	//destructor
 	~MyBag();
 	//getters
