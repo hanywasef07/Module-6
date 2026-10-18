@@ -44,6 +44,30 @@ MyBag::MyBag(const MyBag& other)
 	}
 }
 
+//Copy assignment operator
+//Precondition: other is a valid MyBag object
+//Postcondition: performs a deep copy of the other MyBag
+MyBag& MyBag::operator=(const MyBag& other)
+{
+	if (this != &other)
+	{
+		int* temp = new int[other.capacity];
+
+		for (int i = 0; i < other.size; i++)
+		{
+			temp[i] = other.data[i];
+		}
+
+		delete[] data;
+
+		data = temp;
+		size = other.size;
+		capacity = other.capacity;
+	}
+
+	return *this;
+}
+
 //Destructor
 //precondition: none
 //postcondition: deallocates memory for the data array
